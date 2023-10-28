@@ -17,8 +17,11 @@ export class MainApiProtectedVersion extends HTTPBaseService {
   }
 
   public requstGetBike = () => this.instance.get(``);
+  public requstGetbyName = () =>
+    this.instance.get(`/type/${this.primary_key}/`);
+
   // public requstGetBikeId = () =>
-  //   this.instance.get(`/api/property/property-details/${this.primary_key}/`);
+  //   this.instance.get(`/type/${this.primary_key}/`);
 
   //#########################################invoice###################################################
 }

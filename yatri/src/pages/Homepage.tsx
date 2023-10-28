@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { MainApiProtectedVersion } from '../utils/axios/requests'
+import { Link } from 'react-router-dom';
 
 function Homepage() {
 
@@ -7,7 +8,7 @@ function Homepage() {
       const [selectType, setSelecttype] = useState()
 
       console.log('====================================');
-      console.log(selectType);
+      console.log(variousType);
       console.log('====================================');
       useEffect(() => {
             async function fetchData() {
@@ -27,7 +28,7 @@ function Homepage() {
 
 
       return (
-            <div className='container'>
+            <div className='row'>
                   {selectType != null && (<>
                         {selectType?.name}</>)}
 
@@ -37,7 +38,7 @@ function Homepage() {
 
                   {variousType != null && (<>
                         {
-                              variousType['en']['feeds'].map((item, key) => {
+                              variousType.map((item, key) => {
 
                                     return (
                                           <>
@@ -49,7 +50,8 @@ function Homepage() {
 
                                                 >
                                                       <div className="card-body">
-                                                            <h5 className="card-title"> {item?.name}</h5>
+                                                            <Link to={`${item?.name}`}>
+                                                                  <h5 className="card-title"> {item?.name}</h5></Link>
 
                                                             <a href="/#" className="card-link">Card link</ a>
                                                       </div>
